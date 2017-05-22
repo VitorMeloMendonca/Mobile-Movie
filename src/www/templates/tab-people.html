@@ -1,0 +1,28 @@
+<ion-view view-title="People">
+  <ion-content class="padding">
+    <div>
+      <label class="item item-input">
+        <span class="input-label">People</span>
+        <input type="text" ng-model="People">
+      </label>
+    </div>
+    <div>
+      <div class="card" ng-repeat="people in ListPopularPeople | filter: People">
+        <div class="item  item-text-wrap ">
+          <h2>{{people.name}}</h2>
+          <img ng-src="{{PeopleImage(people)}}">
+            <div class="card" ng-repeat="p in people.known_for">
+              <p><strong>Title: </strong> {{p.original_title}}</p>
+              <p><strong>Date: </strong> {{p.release_date | date: 'MM/dd/yyyy'}}</p>
+              <p><strong>Popularity: </strong> {{p.popularity | number: 0}}</p>
+              <p><strong>Vote: </strong> {{p.vote_count | number: 0}}</p>
+              <p><strong>Average vote: </strong> {{p.vote_average | number: 1}}</p>
+            </div>
+          <p>
+            <a href="#" class="subdued" style="color: cornflowerblue">{{people.popularity | number: 0}} Popularity</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

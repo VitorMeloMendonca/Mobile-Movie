@@ -1,0 +1,17 @@
+<ion-view view-title="Genres">
+  <ion-content>
+    <div>
+      <label class="item item-input">
+        <span class="input-label">Genre</span>
+        <input type="text" ng-model="Genre">
+      </label>
+    </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="genre in ListGenres | filter: Genre" type="item-text-wrap"
+        href="#/tab/movies/{{genre.id}}">
+        <h2>{{genre.name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

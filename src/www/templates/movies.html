@@ -1,0 +1,26 @@
+<ion-view view-title="Movies">
+  <ion-content class="padding">
+    <div>
+      <label class="item item-input">
+        <span class="input-label">Movie</span>
+        <input type="text" ng-model="Movie">
+      </label>
+    </div>
+    <div>
+      <div class="card" ng-repeat="movie in ListMovies | orderBy: 'original_title' | filter: Movie">
+        <div class="item  item-text-wrap ">
+          <h2>{{movie.original_title}}</h2>
+          <img ng-src="{{MovieImage(movie)}}">
+          <p>
+            {{movie.overview}}
+          </p>
+          <p>
+            <a href="#" class="subdued" style="color: cornflowerblue">{{movie.vote_count}} Votes</a>
+            <a href="#" class="subdued" style="color: cornflowerblue">{{movie.vote_average}} Average</a>
+            <span>{{movie.release_date | date: 'MM/dd/yyyy'}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
